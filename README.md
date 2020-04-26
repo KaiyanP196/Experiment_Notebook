@@ -22,12 +22,19 @@ you through the process.
 
 ## Quick Start
 ```python
->>> from expnbk import Example
->>> a = Example()
->>> a.get_value()
-10
+>>> from expnbk import Experiment
+>>> exp = Experiment()
+>>> fig = exp.figure()
+>>> fig.savefig("image1.png")
+>>> exp.savefig("image2.png") 
 
 ```
+
+## Documentation
+Comming soon
+
+
+
 
 ## Citing
 If you use our work in an academic setting, please cite our paper:

@@ -11,4 +11,5 @@ __license__ = "MIT"
 __copyright__ = "Copyright (c) 2020, Kaiyan Peng"
 
 
-from .example import Example  # noqa: F401
+# from .example import Example  # noqa: F401
+from .experiment import Experiment
