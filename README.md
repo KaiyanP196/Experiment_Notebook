@@ -68,13 +68,13 @@ $ tree
 >>> exp = Experiment(expname='some_experiemnt', results_dir='path_to_results_directory', copy_code=True, ignore_dirs=None):
 ```
 `expname`: str, optional
-       A name identifying the type of experiment run.
+   A name identifying the type of experiment run.
 `results_dir` : str, optional
-       Path to the desired results directory for storing experiment details.
+   Path to the desired results directory for storing experiment details.
 `copy_code` : bool, optional
-       Should the experiment results include the code used to generate them?
+   Should the experiment results include the code used to generate them?
 `ignore_dirs` : list(str), optional
-       Any directories that should not be copied with the code.
+   Any directories that should not be copied with the code.
 
 
 
