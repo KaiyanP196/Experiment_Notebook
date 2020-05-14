@@ -3,7 +3,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/Experiment_Notebook.svg)](https://pypi.org/project/Experiment_Notebook/)
 [![Supported Python Versions](https://img.shields.io/pypi/pyversions/Experiment_Notebook.svg)](https://pypi.org/project/Experiment_Notebook/)
 
-expnbk provides a class for creating an experiment with its own results directory that automatically contains a copy of the code used to run the experiment. Super useful for reproducibility.
+`expnbk` provides a class for creating an experiment with its own results directory that automatically contains a copy of the code used to run the experiment. Super useful for reproducibility.
 
 ---
 
@@ -68,19 +68,18 @@ $ tree
 >>> exp = Experiment(expname='some_experiemnt', results_dir='path_to_results_directory', copy_code=True, ignore_dirs=None):
 ```
 `expname`: str, optional
-        A name identifying the type of experiment run.
+       A name identifying the type of experiment run.
 `results_dir` : str, optional
-        Path to the desired results directory for storing experiment details.
+       Path to the desired results directory for storing experiment details.
 `copy_code` : bool, optional
-        Should the experiment results include the code used to generate them?
+       Should the experiment results include the code used to generate them?
 `ignore_dirs` : list(str), optional
-        Any directories that should not be copied with the code.
+       Any directories that should not be copied with the code.
 
 
 
 - Save figures to the same output directory as above: 
 ```python
-//Get a matplotlib figure whose `savefig` function will put it in the experiment directory
->>> fig = exp.figure() 
->>> fig.savefig("image1.png")
+>>> fig = exp.figure() //Get a matplotlib figure
+>>> fig.savefig("image1.png") //`savefig` function will put it in the experiment directory
 ```
