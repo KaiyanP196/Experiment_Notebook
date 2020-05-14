@@ -17,42 +17,70 @@ $ pip install -U Experiment_Notebook
 
 This is the preferred method to install Experiment_Notebook, as it will always install the most recent stable release.
 
-If you don't have [pip](https://pip.pypa.io) installed, these [installation instructions](http://docs.python-guide.org/en/latest/starting/installation/) can guide
-you through the process.
+If you don't have [pip](https://pip.pypa.io) installed, these [installation instructions](http://docs.python-guide.org/en/latest/starting/installation/) can guide you through the process.
+
+
 
 ## Quick Start
+
+The `expnbk` package provides a class `Experiment`. Upon instantiation,  it takes a snapshot of the current working directory and saves all files into a `results/current_time` folder within the current directory (see `Usage` for variations). It also provides functions that automatically save figures to the same output directory. Check out the following example and you shall see similar changes in your directories.  
+```
+$ tree
+    .
+    ├── file1        
+    └── dir1
+        └── file2
+```
 ```python
 >>> from expnbk import Experiment
 >>> exp = Experiment()
 >>> fig = exp.figure()
->>> fig.savefig("image1.png")
->>> exp.savefig("image2.png") 
-
+>>> fig.savefig("image1.png") 
+```
+```
+$ tree
+    .
+    ├── file1
+    ├── dir1
+    │   └── file2
+    └── results
+        └── 2020-12-31_123006
+            ├── <project_name>
+            │   ├── file1
+            │   └── dir1
+            │       └── file2
+            └── image1.png
 ```
 
-## Documentation
-Comming soon
+
+## Usage
+
+- Import the `expnk` package:
+```python
+>>> from expnbk import Experiment
+```
 
 
 
+- Create an `Experiment` class with attributes:
 
-## Citing
-If you use our work in an academic setting, please cite our paper:
+```python
+>>> exp = Experiment(expname='some_experiemnt', results_dir='path_to_results_directory', copy_code=True, ignore_dirs=None):
+```
+`expname`: str, optional
+        A name identifying the type of experiment run.
+`results_dir` : str, optional
+        Path to the desired results directory for storing experiment details.
+`copy_code` : bool, optional
+        Should the experiment results include the code used to generate them?
+`ignore_dirs` : list(str), optional
+        Any directories that should not be copied with the code.
 
 
 
-## Development
-See [CONTRIBUTING.md](CONTRIBUTING.md) for information related to developing the code.
-
-#### Suggested Git Branch Strategy
-1. `master` is for the most up-to-date development, very rarely should you directly commit to this branch. Your day-to-day work should exist on branches separate from `master`. It is recommended to commit to development branches and make pull requests to master.4. It is recommended to use "Squash and Merge" commits when committing PR's. It makes each set of changes to `master`
-atomic and as a side effect naturally encourages small well defined PR's.
-
-
-#### Additional Optional Setup Steps:
-* Create an initial release to test.PyPI and PyPI.
-    * Follow [This PyPA tutorial](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives), starting from the "Generating distribution archives" section.
-
-* Create a blank github repository (without a README or .gitignore) and push the code to it.
-
-* Delete these setup instructions from `README.md` when you are finished with them.
+- Save figures to the same output directory as above: 
+```python
+//Get a matplotlib figure whose `savefig` function will put it in the experiment directory
+>>> fig = exp.figure() 
+>>> fig.savefig("image1.png")
+```
