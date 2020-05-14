@@ -12,7 +12,7 @@
 To install Experiment_Notebook, run this command in your terminal:
 
 ```bash
-$ pip install -U Experiment_Notebook
+$ pip install -U expnbk
 ```
 
 This is the preferred method to install Experiment_Notebook, as it will always install the most recent stable release.
